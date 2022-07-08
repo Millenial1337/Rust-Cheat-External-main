@@ -357,15 +357,13 @@ void ESP(BasePlayer* BP, BasePlayer* LP) {
 				if (PlayerSleeping && Value::bools::Visuals::ESP::IgnoreSleeper)
 					return;
 
-				
-				
 				static float screenW = GetSystemMetrics(SM_CXSCREEN);
 				static float screenH = GetSystemMetrics(SM_CYSCREEN);
-				
+
 				if (Value::bools::Visuals::ESP::Health) {
 					char Health[64];
 					sprintf(Health, skCrypt("%0.f HP"), BP->Health());
-					draw_text_white(tempFeet.x, (tempFeet.y + 25), Health);
+					DrawString(Health, 12, tempFeet.x, (tempFeet.y + 25), 1.f, 1.f, 1.f);
 				}
 				if (Value::bools::Visuals::ESP::Box && !PlayerSleeping && !PlayerWounded) {
 					DrawBox(Entity_x + 1, Entity_y + 1, Entity_w - 2, Entity_h - 2, 1.f, 1.f, 1.f, 1.f, 1.f, false);
@@ -373,13 +371,13 @@ void ESP(BasePlayer* BP, BasePlayer* LP) {
 				if (Value::bools::Visuals::ESP::Distance) {
 					char Distance[64];
 					sprintf(Distance, skCrypt("%d M"), (int)Math::Calc3D_Dist(LP->GBoneByID2(head), BP->GBoneByID2(head)));
-					draw_text_white(tempFeet.x, (tempFeet.y + 4), Distance);
+					DrawString(Distance, 12, tempFeet.x, (tempFeet.y + 4), 1.f, 1.f, 1.f);
 				}
 				if (Value::bools::Visuals::ESP::Name) {
-					draw_text_white(tempFeet.x + 1, (tempFeet.y + 15), BP->GetNamecChars().c_str());
+					DrawString(BP->GetNamecChars().c_str(), 14, tempFeet.x + 1, (tempFeet.y + 15), 1.f, 1.f, 1.f);
 				}
 				if (Value::bools::Visuals::ESP::Weapon) {
-					draw_text_white(tempFeet.x, (tempFeet.y + 2), BP->GetActiveWeaponcChars().c_str());
+					DrawString(BP->GetActiveWeaponcChars().c_str(), 12, tempFeet.x, (tempFeet.y + 2), 1.f, 1.f, 1.f);
 				}
 			}
 		}
@@ -406,7 +404,7 @@ void entity_esp_thread() {
 					sprintf(text, skCrypt("Stash [%d m]"), distation);
 					if (distation <= Value::floats::Visuals::World::LimitDistance) {
 						RenderedEntityCount++;
-						draw_text_white(pos.x, pos.y, text);
+						DrawString(text, 12, pos.x, pos.y, 1.f, 1.f, 1.f);
 					}
 				}
 			}
@@ -420,7 +418,7 @@ void entity_esp_thread() {
 					sprintf(text, skCrypt("Hemp [%d m]"), distation);
 					if (distation <= Value::floats::Visuals::World::LimitDistance) {
 						RenderedEntityCount++;
-						draw_text_white(pos.x, pos.y, text);
+						DrawString(text, 12, pos.x, pos.y, 1.f, 1.f, 1.f);
 					}
 				}
 			}
@@ -434,7 +432,7 @@ void entity_esp_thread() {
 					sprintf(text, skCrypt("AirDrop [%d m]"), distation);
 					if (distation <= Value::floats::Visuals::World::LimitDistance2) {
 						RenderedEntityCount++;
-						draw_text_white(pos.x, pos.y, text);
+						DrawString(text, 12, pos.x, pos.y, 1.f, 1.f, 1.f);
 					}
 				}
 			}
@@ -448,7 +446,7 @@ void entity_esp_thread() {
 					sprintf(text, skCrypt("CH47 [%d m]"), distation);
 					if (distation <= Value::floats::Visuals::World::LimitDistance2) {
 						RenderedEntityCount++;
-						draw_text_white(pos.x, pos.y, text);
+						DrawString(text, 12, pos.x, pos.y, 1.f, 1.f, 1.f);
 					}
 				}
 			}
@@ -462,7 +460,7 @@ void entity_esp_thread() {
 					if (distation <= Value::floats::Visuals::World::LimitDistance2) {
 						RenderedEntityCount++;
 						sprintf(text, skCrypt("Minicopter [%d m]"), distation);
-						draw_text_white(pos.x, pos.y, text);
+						DrawString(text, 12, pos.x, pos.y, 1.f, 1.f, 1.f);
 					}
 				}
 			}
@@ -476,7 +474,7 @@ void entity_esp_thread() {
 					if (distation <= Value::floats::Visuals::World::LimitDistance2) {
 						RenderedEntityCount++;
 						sprintf(text, skCrypt("Patrol [%d m]"), distation);
-						draw_text_white(pos.x, pos.y, text);
+						DrawString(text, 12, pos.x, pos.y, 1.f, 1.f, 1.f);
 					}
 				}
 			}
@@ -490,7 +488,7 @@ void entity_esp_thread() {
 					sprintf(text, skCrypt("Stone [%d m]"), distation);
 					if (distation <= Value::floats::Visuals::World::LimitDistance) {
 						RenderedEntityCount++;
-						draw_text_white(pos.x, pos.y, text);
+						DrawString(text, 12, pos.x, pos.y, 1.f, 1.f, 1.f);
 					}
 				}
 			}
@@ -504,7 +502,7 @@ void entity_esp_thread() {
 					sprintf(text, skCrypt("Metal [%d m]"), distation);
 					if (distation <= Value::floats::Visuals::World::LimitDistance) {
 						RenderedEntityCount++;
-						draw_text_white(pos.x, pos.y, text);
+						DrawString(text, 12, pos.x, pos.y, 1.f, 1.f, 1.f);
 					}
 				}
 			}
@@ -518,7 +516,7 @@ void entity_esp_thread() {
 					sprintf(text, skCrypt("Sulfur [%d m]"), distation);
 					if (distation <= Value::floats::Visuals::World::LimitDistance) {
 						RenderedEntityCount++;
-						draw_text_white(pos.x, pos.y, text);
+						DrawString(text, 12, pos.x, pos.y, 1.f, 1.f, 1.f);
 					}
 				}
 			}
@@ -533,7 +531,7 @@ void entity_esp_thread() {
 					sprintf(text, skCrypt("Corpse [%d m]"), distation);
 					if (distation <= Value::floats::Visuals::World::LimitDistance) {
 						RenderedEntityCount++;
-						draw_text_white(pos.x, pos.y, text);
+						DrawString(text, 12, pos.x, pos.y, 1.f, 1.f, 1.f);
 					}
 				}
 			}
@@ -549,7 +547,7 @@ void entity_esp_thread() {
 					sprintf(text, skCrypt("Backpack [%d m]"), distation);
 					if (distation <= Value::floats::Visuals::World::LimitDistance) {
 						RenderedEntityCount++;
-						draw_text_white(pos.x, pos.y, text);
+						DrawString(text, 12, pos.x, pos.y, 1.f, 1.f, 1.f);
 					}
 				}
 			}

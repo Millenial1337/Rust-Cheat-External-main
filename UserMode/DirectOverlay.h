@@ -71,10 +71,6 @@ void DirectOverlaySetup(DirectOverlayCallback callbackFunction, HWND targetWindo
 // Specify the color, and optionally an alpha for the line.
 void DrawLine(float x1, float y1, float x2, float y2, float thickness, float r, float g, float b, float a = 1);
 
-void draw_text_white(int x, int y, const char* str, ...);
-
-
-
 // Draws a rectangle on the screen.  Width and height are relative to the coordinates of the box.  
 // Use the "filled" bool to make it a solid rectangle; ignore the thickness.
 // To just draw the border around the rectangle, specify a thickness and pass "filled" as false.
