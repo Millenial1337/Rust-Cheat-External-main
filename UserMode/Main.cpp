@@ -323,7 +323,7 @@ void InitPlayer()
 
 void Draw() {
 	char fpsinfo[64];
-	sprintf(fpsinfo, skCrypt("Winhack.fun"));
+	sprintf(fpsinfo, skCrypt("Watermark lmao"));
 	
 	if (Value::bools::Aim::Fov) {
 
