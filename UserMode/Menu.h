@@ -193,8 +193,9 @@ public:
 	}
 	time_t lastTime;
 	inline	bool ReadKeyOnce(unsigned int keycode, unsigned int timer) {
-		if ((clock() - lastTime > timer) && GetAsyncKeyState(keycode)) {
-			lastTime = clock();
+		if (GetAsyncKeyState(keycode))
+		{
+			Sleep(timer);
 			return true;
 		}
 		return false;
